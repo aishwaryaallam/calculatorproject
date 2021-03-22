@@ -102,6 +102,22 @@ class TestCalC(unittest.TestCase):
             self.assertEqual(round(self.calculator.division(b[i], a[i]), 2), round(ans[i], 2))
         print("Division all test case passed")
 
+    def test_square(self):
+        a = []
+        ans = []
+        with open('Unit Test Square.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+            line = 0
+            for row in csv_reader:
+                if line != 0:
+                    a.append(float(row[0]))
+                    ans.append(float(row[1]))
+                line += 1
+
+        for i in range(0, len(a)):
+            self.assertEqual(round(self.calculator.square(a[i]), 2), round(ans[i], 2))
+        print("Square all test case passed")
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

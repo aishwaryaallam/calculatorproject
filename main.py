@@ -66,6 +66,24 @@ class TestCalC(unittest.TestCase):
             self.assertEqual(self.calculator.subtraction(b[i], a[i]), ans[i])
         print("Subtraction all test case passed")
 
+    def test_multiplication(self):
+        a = []
+        b = []
+        ans = []
+        with open('Unit Test Multiplication.csv') as file:
+            csv_reader = csv.reader(file, delimiter=',')
+            line = 0
+            for row in csv_reader:
+                if line != 0:
+                    a.append(float(row[0]))
+                    b.append(float(row[1]))
+                    ans.append(float(row[2]))
+                line += 1
+
+        for i in range(0, len(a)):
+            self.assertEqual(self.calculator.multiplication(a[i], b[i]), ans[i])
+        print("Multiplication all test case passed")
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
